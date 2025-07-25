@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "medicos")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+//@Getter lombok não esta funcionando
 @EqualsAndHashCode(of = "id")
 public class Medico {
 
@@ -24,7 +22,6 @@ public class Medico {
 
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
-
     @Embedded
     private Endereco endereco;
 
@@ -35,5 +32,37 @@ public class Medico {
         this.crm = dados.crm();
         this.endereco = new Endereco(dados.endereco());
         this.telefone = dados.telefone();
+    }
+
+    public Medico(){
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }
