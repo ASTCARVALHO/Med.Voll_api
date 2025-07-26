@@ -2,10 +2,8 @@ package doll.med.api.medico;
 
 import doll.med.api.endereco.Endereco;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "medicos")
