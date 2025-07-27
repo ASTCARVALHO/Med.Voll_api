@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "pacientes")
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of ="id")
 public class Paciente {
@@ -36,6 +35,31 @@ public class Paciente {
 
     }
 
+    public Paciente(){
 
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
 }
