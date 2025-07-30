@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "pacientes")
@@ -21,6 +21,7 @@ public class Paciente {
     private String email;
     private String telefone;
     private String cpf;
+    private Boolean ativo;
 
     @Embedded
     private Endereco endereco;
@@ -32,10 +33,11 @@ public class Paciente {
         this.cpf = dados.cpf();
         this.telefone = dados.telefone();
         this.endereco = new Endereco(dados.endereco());
+        this.ativo = true;
 
     }
 
-    public Paciente(){
+    public Paciente() {
 
     }
 
@@ -59,7 +61,29 @@ public class Paciente {
         return cpf;
     }
 
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
     public Endereco getEndereco() {
         return endereco;
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoPacientes dados){
+        if (dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if (dados.email() != null){
+            this.email = dados.email();
+        }
+        if (dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+    }
+
+    public void excluir(){
+        this.ativo = false;
+    }
 }
+
+
