@@ -63,4 +63,17 @@ public class Medico {
     public String getNome() {
         return nome;
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoMedicos dadosAtualizacaoMedicos) {
+        if (dadosAtualizacaoMedicos.nome() != null){
+            this.nome = dadosAtualizacaoMedicos.nome();
+        }
+        if (dadosAtualizacaoMedicos.telefone() != null){
+            this.telefone = dadosAtualizacaoMedicos.telefone();
+        }
+        if (dadosAtualizacaoMedicos.endereco() != null){
+            this.endereco.atualizarInfomacoes(dadosAtualizacaoMedicos.endereco());
+        }
+
+    }
 }
