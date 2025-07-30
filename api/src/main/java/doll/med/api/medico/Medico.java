@@ -11,12 +11,14 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(of = "id")
 public class Medico {
 
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String email;
     private String crm;
     private String telefone;
+    private Boolean ativo;
 
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
@@ -30,10 +32,15 @@ public class Medico {
         this.crm = dados.crm();
         this.endereco = new Endereco(dados.endereco());
         this.telefone = dados.telefone();
+        this.ativo = true;
     }
 
     public Medico(){
 
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
     }
 
     public Long getId() {
@@ -62,6 +69,10 @@ public class Medico {
 
     public String getNome() {
         return nome;
+    }
+
+    public void excluir(){
+        this.ativo = false;
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedicos dadosAtualizacaoMedicos) {
